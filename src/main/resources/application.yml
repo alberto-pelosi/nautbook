@@ -1,0 +1,18 @@
+micronaut:
+  application:
+    name: cookbook
+  metrics:
+    enabled: true
+    export:
+      atlas:
+        enabled: true
+        uri: http://localhost:7101/api/v1/publish
+        step: PT1M
+datasources:
+  default:
+    url: jdbc:postgresql://192.168.99.100:5432/postgres
+    driverClassName: org.postgresql.Driver
+    username: postgres
+    password: postgres
+    schema-generate: CREATE_DROP
+    dialect: POSTGRES
