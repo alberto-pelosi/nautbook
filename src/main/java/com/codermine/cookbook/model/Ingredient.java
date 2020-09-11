@@ -1,12 +1,12 @@
 package com.codermine.cookbook.model;
 
-
-
 import io.micronaut.data.annotation.MappedEntity;
 import io.micronaut.data.annotation.Relation;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @MappedEntity
@@ -19,8 +19,11 @@ public class Ingredient {
     @Relation(value = Relation.Kind.ONE_TO_MANY, mappedBy = "ingredient")
     private List<Dose> doses;
 
+    @NotBlank
+    @Size(min = 1, max = 255)
     private String name;
 
+    @Size(max = 255)
     private String description;
 
     public Long getId() {

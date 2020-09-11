@@ -2,6 +2,9 @@ package com.codermine.cookbook.model;
 
 import io.micronaut.data.annotation.*;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+
 
 @MappedEntity("recipe_ingredient")
 public class Dose {
@@ -16,8 +19,10 @@ public class Dose {
     @Relation(Relation.Kind.MANY_TO_ONE)
     private Ingredient ingredient;
 
+    @Positive
     private Double quantity;
 
+    @NotNull
     private UnitOfMeasure unitOfMeasure;
 
     public Long getId() {

@@ -5,6 +5,8 @@ import io.micronaut.data.annotation.MappedEntity;
 import io.micronaut.data.annotation.Relation;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @MappedEntity
@@ -14,8 +16,11 @@ public class Recipe {
     @GeneratedValue
     private Long id;
 
+    @NotBlank
+    @Size(min = 1, max = 255)
     private String name;
 
+    @Size(max = 255)
     private String description;
 
     @Relation(value = Relation.Kind.ONE_TO_MANY, mappedBy = "recipe")

@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Singleton
@@ -18,7 +20,7 @@ public class DoseService {
     @Inject
     private DoseRepository doseRepository;
 
-    public Dose insertDose(Dose dose) {
+    public Dose insertDose(@NotNull @Valid Dose dose) {
         logger.info("DoseService - insertDose - start - dose: {}", dose);
         List<Dose> doses = doseRepository.findByRecipe(dose.getRecipe());
 

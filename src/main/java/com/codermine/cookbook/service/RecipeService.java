@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PositiveOrZero;
 import java.util.Optional;
 
 @Singleton
@@ -18,14 +20,14 @@ public class RecipeService {
     @Inject
     private RecipeRepository recipeRepository;
 
-    public Optional<Recipe> findById(Long id) {
+    public Optional<Recipe> findById(@PositiveOrZero Long id) {
         logger.info("RecipeService - findById - start - id: {}", id);
         Optional<Recipe> recipe = recipeRepository.findById(id);
         logger.info("RecipeService - findById - stop - recipe: {}", recipe);
         return recipe;
     }
 
-    public Recipe insertRecipe(Recipe recipe) {
+    public Recipe insertRecipe(@NotNull Recipe recipe) {
         logger.info("RecipeService - insertRecipe - start - recipe: {}", recipe);
         if(isPresent(recipe)) throw new CookbookException("Recipe already present");
         Recipe saveRecipe = recipeRepository.save(recipe);
@@ -33,7 +35,7 @@ public class RecipeService {
         return saveRecipe;
     }
 
-    private boolean isPresent(Recipe recipe) {
+    private boolean isPresent(@NotNull Recipe recipe) {
         return !recipeRepository.findByName(recipe.getName()).isEmpty();
     }
 }
