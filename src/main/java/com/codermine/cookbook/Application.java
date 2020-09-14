@@ -8,7 +8,7 @@ import io.swagger.v3.oas.annotations.info.*;
         info = @Info(
                 title = "cookbook",
                 version = "0.0",
-                description = "Cookbook",
+                description = "${openapi.description}",
                 license = @License(name = "WTFPL", url = "https://www.codermine.com/"),
                 contact = @Contact(url = "https://contact-url.com", name = "Micronaut Supporter", email = "helpdesk@mail.com")
         )
