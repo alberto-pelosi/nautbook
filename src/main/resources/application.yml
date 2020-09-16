@@ -3,11 +3,6 @@ micronaut:
     name: cookbook
   metrics:
     enabled: true
-    export:
-      atlas:
-        enabled: true
-        uri: http://localhost:7101/api/v1/publish
-        step: PT1M
   router:
     static-resources:
       swagger:
@@ -22,6 +17,34 @@ micronaut:
       swagger-ui:
         paths: classpath:META-INF/swagger/views/swagger-ui
         mapping: /swagger-ui/**
+endpoints:
+  beans:
+    enabled: true
+    sensitive: false
+  health:
+    enabled: true
+    sensitive: false
+  info:
+    enabled: true
+    sensitive: false
+  metrics:
+    enabled: true
+    sensitive: false
+  routes:
+    enabled: true
+    sensitive: false
+  loggers:
+    enabled: true
+    sensitive: false
+  caches:
+    enabled: true
+    sensitive: false
+  stop:
+    enabled: true
+    sensitive: false
+  env:
+    enabled: true
+    sensitive: false
 datasources:
   default:
     url: jdbc:postgresql://192.168.99.100:5432/cookbook
@@ -30,3 +53,10 @@ datasources:
     password: postgres
     schema-generate: CREATE_DROP
     dialect: POSTGRES
+my:
+  prop: dev-property-value
+config:
+  properties:
+    id: 42
+    name: recipe name
+    description: recipe description

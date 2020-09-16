@@ -3,6 +3,7 @@ package com.codermine.cookbook.repository;
 import com.codermine.cookbook.model.Recipe;
 import com.codermine.cookbook.support.PersistenceTestSupport;
 import io.micronaut.test.annotation.MicronautTest;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +11,7 @@ import javax.inject.Inject;
 import java.util.Optional;
 
 @MicronautTest
-public class RecipeRepositoryTest {
+class RecipeRepositoryTest {
 
     private static final String INSERT_RECIPE = "insert into recipe (id, name, description) OVERRIDING SYSTEM VALUE values (1, 'lol', 'desc');";
 
@@ -36,8 +37,10 @@ public class RecipeRepositoryTest {
     }
 
     @Test
-    public void findByIdTest() {
+    void findByIdTest() {
         Optional<Recipe> recipe = recipeRepository.findById(1L);
-        System.out.println(recipe);
+        Assertions.assertTrue(recipe.isPresent());
+        Assertions.assertNotNull(recipe.get().getDoses());
+        Assertions.assertEquals(2, recipe.get().getDoses().size());
     }
 }
