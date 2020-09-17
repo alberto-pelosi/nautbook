@@ -3,7 +3,6 @@ package com.codermine.cookbook.configuration;
 import io.micronaut.context.annotation.ConfigurationProperties;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 @ConfigurationProperties("config.properties")
 public class TypeSafeProperties {
