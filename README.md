@@ -1,4 +1,4 @@
-# A cookbook designed to learn (and teach) micronaut framework.
+# A cookbook designed to learn (and teach) Micronaut framework
 
 ## Prerequisites
 * JDK >= 11
