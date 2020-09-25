@@ -20,7 +20,7 @@ public class RecipeControllerTest {
     HttpClient httpClient;
 
     @Test
-    void postTest(){
+    void postTest() {
         Recipe recipe = new Recipe();
         recipe.setName("Pizza Margherita");
         recipe.setDescription("Pizza Margherita, ricetta di Cracco.");
@@ -28,7 +28,7 @@ public class RecipeControllerTest {
         Recipe response = httpClient.toBlocking().retrieve(request, Recipe.class);
         Assertions.assertNotNull(response);
         Assertions.assertNotNull(response.getId());
-        Assertions.assertEquals("Pizza Margherita",response.getName());
-        Assertions.assertEquals("Pizza Margherita, ricetta di Cracco.",response.getDescription());
+        Assertions.assertEquals("Pizza Margherita", response.getName());
+        Assertions.assertEquals("Pizza Margherita, ricetta di Cracco.", response.getDescription());
     }
 }

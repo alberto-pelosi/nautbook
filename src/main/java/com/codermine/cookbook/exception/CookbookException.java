@@ -1,6 +1,6 @@
 package com.codermine.cookbook.exception;
 
-public class CookbookException extends RuntimeException{
+public class CookbookException extends RuntimeException {
 
     public CookbookException(String message) {
         super(message);
