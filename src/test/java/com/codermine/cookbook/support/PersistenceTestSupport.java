@@ -15,9 +15,6 @@ public class PersistenceTestSupport {
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
 
-
-
-
     @Inject
     private JdbcOperations jdbcOperations;
 
